@@ -1,11 +1,5 @@
 /***********************************************
 ** File: Module2-NorthwindDDLDML.sql
-** Desc: creating and deleting databases/tables (DDL)
-**       uploading and deleting Data ( DML )
-** Auth: Shreenidhi Bharadwaj
-** Date: 9/21/2019
-** Ref : https://github.com/pthom/northwind_psql
-** ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 ************************************************/
 --
 -- Northwind PostgreSQL database dump

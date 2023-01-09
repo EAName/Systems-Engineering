@@ -1,15 +1,11 @@
 #***********************************************
 # File: module1-imdbapi.py
-# Desc: Python script to work with IMDB files
 # Purpose: Python script to get the list of files containing information
 #          about movies, series, actors etc at imdb
 #          1. Identify list of files
 #          2. Locate the urls & download gz files
 #          3. Extract tsv files from gz files
 #          4. Upload files to AWS S3
-# Auth: Shreenidhi Bharadwaj
-# Date: 9/29/2019
-# ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 #************************************************/
 import os
 import json

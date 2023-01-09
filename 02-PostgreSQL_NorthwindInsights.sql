@@ -1,10 +1,5 @@
 /***********************************************
 ** File: Module2-NorthwindInSights.sql
-** Desc: Insights based on Northwind dataset
-** Auth: Shreenidhi Bharadwaj
-** Date: 9/21/2019
-** Ref : https://www.geeksengine.com/database/problem-solving/northwind-queries-part-1.php
-** ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 ************************************************/
 select * from categories;
 select * from customer_customer_demo;

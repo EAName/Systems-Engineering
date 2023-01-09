@@ -1,0 +1,135 @@
+# Login to EC2 instance
+ssh -i "YOUR_PEM_FILE" ec2-user@YOUR_PUBLIC_DNS
+
+# create a temp working directory & make it your present/current working directory
+mkdir temp_imdb
+cd temp_imdb
+
+# download the files to understand the column names & structure
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f name.basics.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.akas.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.basics.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.crew.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.episode.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.ratings.tsv
+python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.principals.tsv
+
+# drop the tables
+drop table name_basics;
+drop table title_akas;
+drop table title_basics;
+drop table title_crew;
+drop table title_episode;
+drop table title_ratings;
+drop table title_principals;
+
+# first step in importing data to Redshift is to create the tables, Redshift doesn't allow to create tables on the fly when copying data from S3
+# read the file headers by cat <FILE_NAME> | head -1
+# one has to identify thhe datatype & length of each columns
+# here I just import everything as text/string as this would serve as initial temp tables, any data type changes and data manipulation & importing into target tables should be part of "Transformation" stage in ETL
+
+create table name_basics (nconst VARCHAR(10),
+                         primaryName VARCHAR(200),
+                         birthYear VARCHAR(4),
+                         deathYear VARCHAR(4),
+                         primaryProfession VARCHAR(200),
+                         knownForTitles VARCHAR(200));
+
+create table title_akas (titleId VARCHAR(10),
+                         ordering VARCHAR(3),
+                         title VARCHAR(2000),
+                         region VARCHAR(5),
+                         language VARCHAR(5),
+                         types VARCHAR(20),
+                         attributes VARCHAR(200),
+                         isOriginalTitle VARCHAR(5));
+
+create table title_basics (tconst VARCHAR(10),
+                           titleType VARCHAR(20),
+                           primaryTitle VARCHAR(2000),
+                           originalTitle VARCHAR(2000),
+                           isAdult VARCHAR(2),
+                           startYear VARCHAR(4),
+                           endYear VARCHAR(4),
+                           runtimeMinutes VARCHAR(6),
+                           genres VARCHAR(200));
+
+create table title_crew (tconst VARCHAR(10),
+                         directors VARCHAR(5000),
+                         writers VARCHAR(15000));
+
+create table title_episode (tconst VARCHAR(10),
+                            parentTconst VARCHAR(10),
+                            seasonNumber VARCHAR(5),
+                            episodeNumber VARCHAR(5));
+
+create table title_ratings (tconst VARCHAR(10),
+                            averageRating VARCHAR(5),
+                            numVotes VARCHAR(10));
+
+create table title_principals (tconst VARCHAR(10),
+                               ordering VARCHAR(4),
+                               nconst VARCHAR(10),
+                               category VARCHAR(200),
+                               job VARCHAR(2000),
+                               characters VARCHAR(2000));
+
+# Importing data directly from an S3 file
+copy name_basics from 's3://aws-big-data-project/imdb/20190826/name.basics.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_akas from 's3://aws-big-data-project/imdb/20190826/title.akas.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_basics from 's3://aws-big-data-project/imdb/20190826/title.basics.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_crew from 's3://aws-big-data-project/imdb/20190826/title.crew.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_episode from 's3://aws-big-data-project/imdb/20190826/title.episode.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_ratings from 's3://aws-big-data-project/imdb/20190826/title.ratings.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+copy title_principals from 's3://aws-big-data-project/imdb/20190826/title.principals.tsv'
+credentials 'aws_access_key_id=<YOUR_ACCESS_KEY>;aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>'
+delimiter '\t'
+IGNOREHEADER 1
+
+# Validate the counts of records imported as data sanity test / check
+select count(*) from name_basics;       # 9533753
+select count(*) from title_akas;        # 3829153
+select count(*) from title_basics;      # 6114942
+select count(*) from title_crew;        # 6114942
+select count(*) from title_episode;     # 4270021
+select count(*) from title_ratings;     # 965529
+select count(*) from title_principals;  # 35238029
+
+cat name.basics.tsv |  wc -l
+9533754
+cat title.akas.tsv |  wc -l
+3829154
+cat title.basics.tsv |  wc -l
+6114943
+cat title.crew.tsv |  wc -l
+6114943
+cat title.episode.tsv |  wc -l
+4270022
+cat title.ratings.tsv |  wc -l
+965530
+cat title.principals.tsv |  wc -l
+35238030

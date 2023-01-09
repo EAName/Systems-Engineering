@@ -1,0 +1,51 @@
+#***********************************************
+# File: Commands2RunScripts.py
+# Desc: S3 operations
+# Auth: Shreenidhi Bharadwaj
+# Date: 9/29/2019
+# ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
+#************************************************/
+
+# show the help menu with options
+python3 awsapi.py -h
+
+Bucket operations:
+python3 awsapi.py -bo list
+python3 awsapi.py -bo create -b test-bucket-big-data
+python3 awsapi.py -bo exists -b test-bucket-big-data
+
+Folder/directory/ object operations:
+python3 awsapi.py -oo list -b test-bucket-big-data
+python3 awsapi.py -oo create -b test-bucket-big-data -rd test-directory
+python3 awsapi.py -oo create -b test-bucket-big-data -o test-directory -rd nested-directory
+python3 awsapi.py -oo create -b test-bucket-big-data -o test-directory -rd nested-directory1
+python3 awsapi.py -oo exists -b test-bucket-big-data -o test-directory -rd nested-directory1
+python3 awsapi.py -oo delete -b test-bucket-big-data -o test-directory -rd nested-directory1 
+
+File operations:
+python3 awsapi.py -fo upload -b test-bucket-big-data -o test-directory/nested-directory -d /tmp/temp_imdb -f title.ratings.tsv
+python3 awsapi.py -fo download -b test-bucket-big-data -o test-directory/nested-directory -d /tmp/temp_imdb -f title.ratings.tsv
+python3 awsapi.py -fo exists -b test-bucket-big-data -o test-directory/nested-directory -d /tmp/temp_imdb -f title.ratings.tsv
+python3 awsapi.py -fo delete -b test-bucket-big-data -o test-directory/nested-directory -d /tmp/temp_imdb -f title.ratings.tsv
+
+
+# Delete the bucket
+python3 awsapi.py -bo delete -b test-bucket-big-data
+
+python3 imdbapi.py -h  # show the help menu with options
+
+## Working with IMDB & Panama Datasets
+
+# create the S3 buckets and folders { Note: S3 bucket name needs to be unique }
+python3 awsapi.py -bo create -b aws-big-data-project
+python3 awsapi.py -oo create -b aws-big-data-project -rd imdb
+python3 awsapi.py -oo create -b aws-big-data-project -rd panama
+
+# Download IMDB compressed files from internet to /tmp/temp_imdb, then upcompress it & upload to S3
+python3 imdbapi.py -b aws-big-data-project -o imdb -d /tmp/temp_imdb -l INFO
+
+# show the help menu with options
+python3 panamaapi.py -h
+
+# Download Panama compressed files from internet to /tmp/temp_imdb, then upcompress it & upload to S3
+python3 panamaapi.py -b aws-big-data-project -o panama -d /tmp/temp_panama -l INFO

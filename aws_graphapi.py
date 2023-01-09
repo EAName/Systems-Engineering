@@ -1,19 +1,5 @@
 #***********************************************
 # File: aws_graphapi.py
-# Desc: Python script to connect to AWS S3
-# Purpose: Perform following operation:
-#          1. List buckets
-#          2. Create bucket
-#          3. Delete bucket
-#          4. Bucket exists
-#          5. List Objects
-#          6. Folder exists
-#          7. Create Folder
-#          8. Delete Folder
-#          12. File exists
-# Auth: Shreenidhi Bharadwaj
-# Date: 9/29/2019
-# ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 #************************************************/
 from flask import Flask
 from graphene import ObjectType, String, Schema

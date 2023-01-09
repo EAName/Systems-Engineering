@@ -1,5 +1,5 @@
 #***********************************************
-# File: module1-awsapi.py
+# File: awsapi.py
 # Desc: Python script to connect to AWS S3
 # Purpose: Perform following operation:
 #          1. List buckets
@@ -18,6 +18,7 @@
 # Date: 9/29/2019
 # ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 #************************************************/
+
 import os
 import boto3
 import logging

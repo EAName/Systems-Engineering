@@ -1,0 +1,1230 @@
+{
+	"info": {
+		"_postman_id": "7a1bb2e9-d2ee-4c26-98f2-2b2f15fddd4c",
+		"name": "AWS S3 Operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buckets home page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folders home page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Files home page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/list",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets exists positive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/exists/aws-big-data-project",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"exists",
+						"aws-big-data-project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets exists negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/exists/aws-big-data-project1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"exists",
+						"aws-big-data-project1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets creation default region",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/create?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets creation specify region",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test2"
+						},
+						{
+							"key": "region",
+							"value": "us-east-2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets creation negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test2"
+						},
+						{
+							"key": "region",
+							"value": "us-east-2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets deletion positive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/delete/aws-big-data-project-test2",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"delete",
+						"aws-big-data-project-test2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buckets deletion negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/delete/aws-big-data-project-test2",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"buckets",
+						"delete",
+						"aws-big-data-project-test2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder list at bucket level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"list"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder create at bucket level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "folder_name",
+							"value": "imdb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder create at bucket level - negative duplicate name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "folder_name",
+							"value": "imdb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder create nested under another folder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&object_name=imdb&folder_name=20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb"
+						},
+						{
+							"key": "folder_name",
+							"value": "20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder list at bucket level after adding folder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"list"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder list at folder level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"list"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder exists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder exists negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder delete negative - folder not specified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder delete positive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder delete negative - folder not exists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder exists after delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload negative - file not specified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload positive - file without path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload positive - file with path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload_withpath.txt"
+						},
+						{
+							"key": "dir",
+							"value": "/Users/gajananganji/Desktop/scripts/bigdata"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File download negative - file not specified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"download"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File download positive - file with path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"download"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload_withpath.txt"
+						},
+						{
+							"key": "dir",
+							"value": "/Users/gajananganji/Desktop/scripts/bigdata"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File download positive - file without path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"download"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File exists negative - file not specified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File exists positive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File exists positive - file not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_notfound.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"exists"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload_notfound.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder list at folder level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"list"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Folder list at bucket level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"folders",
+						"list"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File delete negative - file not specified",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20190829",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20190829"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File delete positive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload_withpath.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File delete negative - file not exists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
+					"protocol": "http",
+					"host": [
+						"ec2-18-221-36-125",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "5004",
+					"path": [
+						"files",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "bucket_name",
+							"value": "aws-big-data-project-test1"
+						},
+						{
+							"key": "object_name",
+							"value": "imdb/20180829"
+						},
+						{
+							"key": "file_name",
+							"value": "test_upload_withpath.txt"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

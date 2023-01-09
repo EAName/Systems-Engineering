@@ -1,0 +1,39 @@
+#***********************************************
+# File: graphql_queries.txt
+# Desc: Commands relating to GraphQL queries
+# Auth: Shreenidhi Bharadwaj
+# Date: 9/29/2019
+# ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
+#************************************************/
+
+{listBuckets}
+
+
+{bucketExists(bucketName: "aws-big-data-project")}
+
+
+{ createBucket(bucketName: "aws-big-data-test1") }
+{ createBucket(bucketName: "aws-big-data-test2", region: "us-east-2") }
+
+
+{ deleteBucket(bucketName: "aws-big-data-test2") }
+{ deleteBucket(bucketName: "aws-big-data-test1") }
+
+
+{listObjects(bucketName: "aws-big-data-project")}
+{listObjects(bucketName: "aws-big-data-project", objectName:"imdb" )}
+
+
+{folderExists(bucketName: "aws-big-data-project", objectName:"imdb" )}
+
+
+{createFolder(bucketName: "aws-big-data-project", folderName:"data" )}
+{createFolder(bucketName: "aws-big-data-project", objectName:"data", folderName:"data2" )}
+
+
+{deleteFolder(bucketName: "aws-big-data-project", objectName:"data/data2" )}
+{deleteFolder(bucketName: "aws-big-data-project", objectName:"data" )}
+
+
+{fileExists(bucketName: "aws-big-data-project", objectName:"imdb/20190929", fileName:"title.ratings.tsv" )}
+{fileExists(bucketName: "aws-big-data-project", objectName:"imdb/20190929", fileName:"title.ratings1.tsv" )}

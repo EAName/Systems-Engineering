@@ -1,6 +1,5 @@
 #***********************************************
 # File: awsapi.py
-# Desc: Python script to connect to AWS S3
 # Purpose: Perform following operation:
 #          1. List buckets
 #          2. Create bucket
@@ -14,9 +13,6 @@
 #          10. Download file
 #          11. Delete File
 #          12. File exists
-# Auth: Shreenidhi Bharadwaj
-# Date: 9/29/2019
-# ALL RIGHTS RESERVED | DO NOT DISTRIBUTE
 #************************************************/
 
 import os

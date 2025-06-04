@@ -151,7 +151,7 @@ def create_folder(bucket_name, folder_name, object_name=None):
 
     :param bucket_name: AWS S3 bucket
     :param folder_name: directory to be created under object_name.
-                        if object_name=None then directory willl be created
+                        if object_name=None then directory will be created
                         at root in the bucket
     :param object_name: AWS S3 directory name. If not specified then same as folder_name
     :return: True if the referenced directory is created, otherwise False

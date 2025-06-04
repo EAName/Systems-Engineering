@@ -139,8 +139,14 @@ def main():
     date = datetime.now().strftime("%Y%m%d")
 
     # Upload files to AWS S3
+    # Handle optional object_name correctly when constructing the
+    # remote path. If object_name was not provided, avoid performing
+    # string concatenation on None which would raise a TypeError.
+    remote_prefix = '' if object_name is None else object_name
+    remote_prefix += date + '/'
+
     for uf in unzipped_files:
-        awsapi.upload_file(bucket_name, dir, uf, object_name+date+'/')
+        awsapi.upload_file(bucket_name, dir, uf, remote_prefix)
         #os.remove(uf)
 
 

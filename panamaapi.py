@@ -87,7 +87,12 @@ def unzip(dir, f):
 
 
 def main():
-    parser = ArgumentParser(formatter_class=RawTextHelpFormatter, prog='imdbapi.py', description='Searches for imdb dump files & downloads them. after unzipping uploads to AWS. \n ')
+    parser = ArgumentParser(
+        formatter_class=RawTextHelpFormatter,
+        prog='panamaapi.py',
+        description='Searches for Panama Papers dump files, downloads them, '
+                    'and uploads the extracted contents to AWS.\n '
+    )
 
     parser.add_argument('-b', '--bucket_name', dest='bucket_name', help='AWS bucket to which files to be uploaded', required=True)
     parser.add_argument('-o', '--object_name', dest='object_name', help='AWS directory to which files to be uploaded')
@@ -129,7 +134,7 @@ def main():
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-    # Generate imdb urls
+    # Generate Panama Papers URLs
     urls = generate_urls()
 
     files          = []

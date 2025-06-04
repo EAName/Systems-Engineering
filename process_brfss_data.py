@@ -381,7 +381,7 @@ def main():
         print('Issue with file downloading from {0}'.format(data_file_url))
 
     print('Uploading file to S3 ...')
-    awsapi.upload_file(bucket_name, dir, zip_fn, dir)
+    awsapi.upload_file(bucket_name, dir, zip_fn, object_name)
 
     print('Setting up ES environment ...')
     service = 'es'

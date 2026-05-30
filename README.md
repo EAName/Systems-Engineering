@@ -25,7 +25,7 @@ Northwestern University M.S. in Data Science (Data Engineering specialization): 
 - **Cluster bootstrap:** EMR node dependency install script (`emr_install.sh`; boto3, NLTK corpora)
 - **Testing:** moto-mocked S3 unit tests for `awsapi` bucket operations (`tests/test_awsapi.py`)
 
-**Course syllabus topic not represented in committed artifacts:** graph database implementation or relational-vs-graph performance benchmarks [VERIFY: Cypher deliverable may live in **Database-Systems-and-Data-Preparation**; no Neo4j/gremlin code in this repo]
+**Course syllabus topic not represented in committed artifacts:** graph database implementation or relational-vs-graph performance benchmarks
 
 **Out of scope for this repo:** Azure-centric batch ETL course implementation (see **Data-Miners**); production analytics web app deployment (see **Analytics-Applications-Engineering**); standalone database prep notebooks (see **Database-Systems-and-Data-Preparation**); algorithm fundamentals (see **Data-Engineering-Algorithms**).
 
@@ -45,8 +45,6 @@ Northwestern University M.S. in Data Science (Data Engineering specialization): 
 | Scraping / HTTP | requests, BeautifulSoup |
 | Testing | pytest/unittest, moto (`mock_aws`) |
 | Ops artifacts | Postman collection, `graphql_queries.txt`, sample CSVs (iris, titanic, wine quality) |
-
-[VERIFY: streaming workloads referenced in course description; committed artifacts are predominantly batch/interactive]
 
 ---
 

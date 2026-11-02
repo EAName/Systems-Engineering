@@ -22,7 +22,14 @@ from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
 from elasticsearch import helpers, Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
+import sys
+
+# awsapi.py lives in ../s3-api; make it importable when this script is run directly.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 's3-api'))
 import awsapi
+
+# BRFSS codebook mapping files ship next to this script.
+MAPPING_DIR = os.path.dirname(os.path.abspath(__file__)) + os.sep
 
 # Data references:
 # - Data: http://www.cdc.gov/brfss/annual_data/2013/files/LLCP2013ASC.ZIP
@@ -59,7 +66,7 @@ def file_to_es(index_name, doc_name, dir, fn, es, count):
     # Each row in BRFSS data file correspondents to a respondent. The response to 321 questions is coded in
     # a single 2365 character long numeric string. The mapping_variable_list.csv file contains a maps the column number
     # to fields. For example, column 18-19 is a 2-digit code for the interview month
-    var = pd.read_csv(dir+'mapping_variable_list.csv')
+    var = pd.read_csv(MAPPING_DIR+'mapping_variable_list.csv')
 
     # We will only be looking at a subset of the columns in this analysis - these columns have been coded with a
     # Keep = Yes value in the variable list.
@@ -77,7 +84,7 @@ def file_to_es(index_name, doc_name, dir, fn, es, count):
     t1 = t.copy(deep=True)
 
     # id to state map
-    st = pd.read_csv(dir+'mapping_state.csv')
+    st = pd.read_csv(MAPPING_DIR+'mapping_state.csv')
 
     # Convert state value from string to int
     t1['_STATE'] = t1['_STATE'].map(lambda x: int(x))
@@ -191,7 +198,7 @@ def file_to_es(index_name, doc_name, dir, fn, es, count):
     #t1['_PASTAE1'] = t1['_PASTAE1'].replace(choice)
 
     # Map activity code to activity names
-    act = pd.read_csv(dir+'mapping_activity.csv', encoding='iso-8859-1')
+    act = pd.read_csv(MAPPING_DIR+'mapping_activity.csv', encoding='iso-8859-1')
     act['Activity'] = act['Activity'].map(lambda x: re.sub(r'\s*$','', x))
 
     t1['EXRACT11'] = t1['EXRACT11'].map(lambda x: int(x) if not str.isspace(x) else None)
@@ -341,15 +348,23 @@ def file_to_es(index_name, doc_name, dir, fn, es, count):
 def main():
 
     st_time = datetime.now()
-    parser = ArgumentParser(formatter_class=RawTextHelpFormatter, prog='imdbapi.py', description='Searches for imdb dump files & downloads them. after unzipping uploads to AWS. \n ')
+    parser = ArgumentParser(formatter_class=RawTextHelpFormatter, prog='process_brfss_data.py', description='Downloads the CDC BRFSS 2013 fixed-width file, uploads it to S3 and indexes it into Elasticsearch. \n ')
 
-    parser.add_argument('-b', '--bucket_name', dest='bucket_name', help='AWS bucket to which files to be uploaded', required=True)
+    parser.add_argument('-b', '--bucket_name', dest='bucket_name', default=os.environ.get('S3_BUCKET'),
+                        help='AWS bucket to which files to be uploaded (default: $S3_BUCKET)')
     parser.add_argument('-o', '--object_name', dest='object_name', help='AWS directory to which files to be uploaded')
     parser.add_argument('-d', '--dir', dest='dir', help='Local directory for downloading files & uploading to AWS', required=True)
-    parser.add_argument('-rh', '--remote_host', dest='remote_host', required=True, help='Host name')
-    parser.add_argument('-r', '--region', dest='region', required=True, help='Port')
+    parser.add_argument('-rh', '--remote_host', dest='remote_host', default=os.environ.get('ES_HOST'),
+                        help='Elasticsearch domain endpoint (default: $ES_HOST)')
+    parser.add_argument('-r', '--region', dest='region', default=os.environ.get('AWS_REGION', 'us-east-2'),
+                        help='AWS region of the Elasticsearch domain (default: $AWS_REGION or us-east-2)')
 
     args = parser.parse_args()
+
+    if not args.bucket_name:
+        parser.error('no S3 bucket given: pass -b or set S3_BUCKET')
+    if not args.remote_host:
+        parser.error('no Elasticsearch host given: pass -rh or set ES_HOST')
 
     bucket_name = args.bucket_name
     object_name = args.object_name
@@ -409,7 +424,7 @@ def main():
     es.indices.create(index_name)
 
     # Add mapping
-    with open(dir+'mapping_brfss.json') as json_mapping:
+    with open(MAPPING_DIR+'mapping_brfss.json') as json_mapping:
         d = json.load(json_mapping)
 
     es.indices.put_mapping(index=index_name, doc_type=doc_name, body=d, include_type_name=True)

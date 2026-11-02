@@ -15,6 +15,10 @@ from sh import gunzip
 from datetime import datetime
 from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
+import sys
+
+# awsapi.py lives in ../s3-api; make it importable when this script is run directly.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 's3-api'))
 import awsapi
 
 def generate_urls():
@@ -82,12 +86,16 @@ def unzip(dir, f):
 def main():
     parser = ArgumentParser(formatter_class=RawTextHelpFormatter, prog='imdbapi.py', description='Searches for imdb dump files & downloads them. after unzipping uploads to AWS. \n ')
 
-    parser.add_argument('-b', '--bucket_name', dest='bucket_name', help='AWS bucket to which files to be uploaded', required=True)
+    parser.add_argument('-b', '--bucket_name', dest='bucket_name', default=os.environ.get('S3_BUCKET'),
+                        help='AWS bucket to which files to be uploaded (default: $S3_BUCKET)')
     parser.add_argument('-o', '--object_name', dest='object_name', help='AWS directory to which files to be uploaded')
     parser.add_argument('-d', '--dir', dest='dir', help='Local directory for downloading files & uploading to AWS', required=True)
     parser.add_argument('-l', '--log_lvl', dest='log_lvl', choices=['NOTSET', 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], help='Logging level to create logs', default='WARNING')
 
     args = parser.parse_args()
+
+    if not args.bucket_name:
+        parser.error('no S3 bucket given: pass -b or set S3_BUCKET')
 
     bucket_name = args.bucket_name
     object_name = args.object_name

@@ -6,13 +6,13 @@ mkdir temp_imdb
 cd temp_imdb
 
 # download the files to understand the column names & structure
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f name.basics.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.akas.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.basics.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.crew.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.episode.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.ratings.tsv
-python3 ../scripts/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.principals.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f name.basics.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.akas.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.basics.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.crew.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.episode.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.ratings.tsv
+python3 ../s3-api/awsapi.py -fo download -b aws-big-data-project -o imdb/20190826 -d . -f title.principals.tsv
 
 # drop the tables
 drop table name_basics;

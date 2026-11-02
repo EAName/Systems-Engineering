@@ -4,7 +4,7 @@ import boto3
 from moto import mock_aws
 import unittest
 
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 's3-api'))
 import awsapi
 
 class TestAwsApi(unittest.TestCase):

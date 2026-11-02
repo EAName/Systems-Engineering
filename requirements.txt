@@ -1,0 +1,35 @@
+# S3 utilities and APIs (s3-api/)
+boto3
+flask
+flask-restful
+# flask-graphql works with the graphene 2.x API used in aws_graphapi.py
+graphene
+flask-graphql
+
+# Ingestion pipelines (pipelines/)
+requests
+pandas
+numpy
+sh
+xport
+requests-aws4auth
+# process_brfss_data.py uses the elasticsearch-py 7.x API
+# (RequestsHttpConnection, doc_type, include_type_name)
+elasticsearch
+
+# Spark text analytics (txt_analytics_EMR.ipynb, runs on EMR)
+pyspark
+nltk
+
+# Tests
+pytest
+moto
+
+# Course-provided tutorials (course-materials/)
+jupyter
+matplotlib
+seaborn
+scikit-learn
+yfinance
+beautifulsoup4
+lxml

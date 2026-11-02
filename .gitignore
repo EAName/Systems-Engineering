@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local credentials and environment
+.env
+*.pem
+
+# Pipeline working directories and downloaded raw data
+temp_imdb/
+temp_panama/
+*.ZIP
+*.zip
+*.tsv
+*.gz
+inmates.csv
+cleaninmates.csv

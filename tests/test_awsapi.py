@@ -31,5 +31,18 @@ class TestAwsApi(unittest.TestCase):
         location = s3.get_bucket_location(Bucket=bucket)['LocationConstraint']
         self.assertEqual(location, region)
 
+    @mock_aws
+    def test_create_bucket_in_us_east_1(self):
+        # us-east-1 rejects an explicit LocationConstraint
+        self.assertTrue(awsapi.create_bucket('mybucket-east1', region='us-east-1'))
+
+    @mock_aws
+    def test_file_exists_requires_exact_key(self):
+        s3 = boto3.client('s3', region_name='us-east-1')
+        s3.create_bucket(Bucket='bucket3')
+        s3.put_object(Bucket='bucket3', Key='imdb/title.ratings.tsv.gz', Body=b'x')
+        self.assertFalse(awsapi.file_exists('bucket3', 'title.ratings.tsv', 'imdb/'))
+        self.assertTrue(awsapi.file_exists('bucket3', 'title.ratings.tsv.gz', 'imdb/'))
+
 if __name__ == '__main__':
     unittest.main()

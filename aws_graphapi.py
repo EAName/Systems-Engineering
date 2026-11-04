@@ -99,8 +99,14 @@ class CreateBucket(graphene.Mutation):
 
         try:
             s3_client = boto3.client('s3', region_name=region)
-            location = {'LocationConstraint': region}
-            s3_client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=location)
+
+            # us-east-1 is S3's default location and rejects an explicit
+            # LocationConstraint, so only send one for the other regions
+            if region in (None, 'us-east-1'):
+                s3_client.create_bucket(Bucket=bucket_name)
+            else:
+                location = {'LocationConstraint': region}
+                s3_client.create_bucket(Bucket=bucket_name, CreateBucketConfiguration=location)
 
             message = 'Created bucket {0} in the S3 region ({1})'.format(bucket_name, region)
 
@@ -240,6 +246,8 @@ class DefaultQuery(graphene.ObjectType):
 
             if objects !=[]:
                 message = "objectName '{}' was found in the bucketName '{}'!".format(object_name, bucket_name)
+            else:
+                message = "objectName '{}' was not found in the bucketName '{}'!".format(object_name, bucket_name)
 
         except ClientError as e:
             message = str(e)
@@ -288,7 +296,7 @@ class DefaultQuery(graphene.ObjectType):
                     s3.put_object(Bucket=bucket_name, Key=object_name)
                     message = "Folder '{}' was created in the the bucket '{}'".format(folder_name, bucket_name)
 
-                    if object_name:
+                    if orig_object_name:
                         message += " under '{}'".format(orig_object_name)
                 else:
                     message = "Failed to create folder '{}' in the the bucket '{}'".format(folder_name, bucket_name)
@@ -383,7 +391,8 @@ class DefaultQuery(graphene.ObjectType):
                 except:
                     pass
 
-                if objects !=[]:
+                # list_objects matches by prefix, so require an exact key match
+                if object_name in objects:
                     message = "File '{}' exists under '{}/{}'!".format(file_name, bucket_name, orig_object_name)
                 else:
                     message = "File '{}' doesn't exist under '{}/{}'!".format(file_name, bucket_name, orig_object_name)
@@ -397,6 +406,14 @@ schema = graphene.Schema(query=DefaultQuery)
 
 
 view_func = GraphQLView.as_view("graphql", schema=schema, graphiql=True)
+
+# Serve GraphiQL at http://<EC2_PUBLIC_DNS>:5004/ (Exercise 3 runs this file
+# directly with "python3 aws_graphapi.py"; without an app it exited immediately)
+app = Flask(__name__)
+app.add_url_rule('/', view_func=view_func)
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5004, debug=False)
 
 
 app = Flask(__name__)

@@ -1,7 +1,7 @@
 # pip3 install --user numpy
 # pip3 install --user pandas
 # pip3 install --user xport
-# pip3 install --user elasticsearch
+# pip3 install --user "elasticsearch>=7,<7.14"   # 8.x removed RequestsHttpConnection/doc_type; 7.14+ rejects AWS-hosted clusters
 # pip3 install --user requests_aws4auth
 # pip3 install --user argparse
 
@@ -256,13 +256,13 @@ def file_to_es(index_name, doc_name, dir, fn, es, count):
 
     t1['_INCOMG'] = t1['_INCOMG'].replace(choice)
 
-    choice = {'1':'Employed for wages', '2':'Self-employed', '3': 'Unemployed < 1 year', '4': 'Unemployed > 1 year', '5': 'Homemaker', '6' : 'Student', '7': 'Retired' , '8': 'Unable to work', '9': 'Refused'}
+    choice = {'1':'Employed for wages', '2':'Self-employed', '3': 'Unemployed > 1 year', '4': 'Unemployed < 1 year', '5': 'Homemaker', '6' : 'Student', '7': 'Retired' , '8': 'Unable to work', '9': 'Refused'}
     t1['EMPLOY1'] = t1['EMPLOY1'].replace(choice)
 
     choice = {'1':'< Kindergarden', '2':'Elementary', '3': 'Some high-school', '4': 'High-school graduate', '5': 'College / tech school', '6' : 'College grade', '9': 'Refused'}
     t1['EDUCA'] = t1['EDUCA'].replace(choice)
 
-    choice = {'1':'Married', '2':'Divored', '4': 'Separated', '3': 'Separated',  '5': 'Never Married', '6':'Unmarried couple' , '9': 'Refused'}
+    choice = {'1':'Married', '2':'Divorced', '3': 'Widowed', '4': 'Separated',  '5': 'Never Married', '6':'Unmarried couple' , '9': 'Refused'}
     t1['MARITAL'] = t1['MARITAL'].replace(choice)
 
     choice = {'1':'Yes', '2':'No', '7':'Don\'t know' , '9': 'Refused'}
@@ -435,6 +435,8 @@ def main():
         dest.write(line)
         count += 1
     f.close()
+    # close (flush) the last batch file before it is read back below
+    if dest: dest.close()
 
     count = 1
     for item in files:

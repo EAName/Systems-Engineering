@@ -54,17 +54,19 @@ def create_bucket(bucket_name, region=None):
         if region is None:
             session = boto3.Session(profile_name='default')
             region = session.region_name
-            location = {'LocationConstraint': region}
             s3_client = session.client('s3')
+        else:
+            s3_client = boto3.client('s3', region_name=region)
+
+        # us-east-1 is S3's default location and rejects an explicit
+        # LocationConstraint, so only send one for the other regions
+        if region in (None, 'us-east-1'):
+            s3_client.create_bucket(Bucket=bucket_name)
+        else:
+            location = {'LocationConstraint': region}
             s3_client.create_bucket(Bucket=bucket_name,
                                     CreateBucketConfiguration=location)
-            logging.info('Created bucket {0} in the S3 default region ({1})'.format(bucket_name, region))
-        else:
-            s3 = boto3.client('s3', region_name=region)
-            location = {'LocationConstraint': region}
-            s3.create_bucket(Bucket=bucket_name,
-                             CreateBucketConfiguration=location)
-            logging.info('Created bucket {0} in the S3 region ({1})'.format(bucket_name, region))
+        logging.info('Created bucket {0} in the S3 region ({1})'.format(bucket_name, region))
 
     except ClientError as e:
         logging.error(e)
@@ -374,7 +376,9 @@ def file_exists(bucket_name, file_name, object_name=None):
         except:
             pass
 
-        if objects !=[]:
+        # list_objects matches by prefix, so require an exact key match
+        # (otherwise "a.tsv" is reported as present when only "a.tsv.gz" exists)
+        if object_name in objects:
             flag_found = True
             logging.info('{0} found in {1}'.format(object_name, bucket_name))
         else:

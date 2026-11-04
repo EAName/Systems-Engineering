@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 import boto3
-host = 'search-big-data-cdc-5p7culbjoeubnqjlig6732uhh4.us-east-2.es.amazonaws.com'
+host = '<YOUR_ES_DOMAIN_ENDPOINT>'  # e.g. search-<domain>-<id>.us-east-2.es.amazonaws.com, without https://
 region = 'us-east-2'
 service = 'es'
 credentials = boto3.Session().get_credentials()

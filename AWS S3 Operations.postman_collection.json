@@ -11,14 +11,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/",
+					"raw": "http://{{ec2_public_dns}}:5004/",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -34,14 +30,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -57,14 +49,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders",
+					"raw": "http://{{ec2_public_dns}}:5004/folders",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -80,14 +68,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files",
+					"raw": "http://{{ec2_public_dns}}:5004/files",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -103,14 +87,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/list",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/list",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -127,14 +107,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/exists/aws-big-data-project",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/exists/aws-big-data-project",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -152,14 +128,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/exists/aws-big-data-project1",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/exists/aws-big-data-project1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -177,14 +149,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/create?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/create?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -207,14 +175,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -241,13 +205,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/create?bucket_name=aws-big-data-project-test2&region=us-east-2",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -274,14 +235,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/delete/aws-big-data-project-test2",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/delete/aws-big-data-project-test2",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -299,14 +256,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/buckets/delete/aws-big-data-project-test2",
+					"raw": "http://{{ec2_public_dns}}:5004/buckets/delete/aws-big-data-project-test2",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -324,14 +277,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/list?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -354,14 +303,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -388,14 +333,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/create?bucket_name=aws-big-data-project-test1&folder_name=imdb",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -422,14 +363,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/create?bucket_name=aws-big-data-project-test1&object_name=imdb&folder_name=20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/create?bucket_name=aws-big-data-project-test1&object_name=imdb&folder_name=20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -460,14 +397,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/list?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -490,14 +423,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -524,14 +453,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -558,14 +483,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/exists?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -588,14 +509,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/delete?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -618,14 +535,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -652,14 +565,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -686,14 +595,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -720,14 +625,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -754,14 +655,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -792,14 +689,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
+					"raw": "http://{{ec2_public_dns}}:5004/files/upload?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -834,14 +727,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -868,14 +757,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
+					"raw": "http://{{ec2_public_dns}}:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt&dir=/Users/gajananganji/Desktop/scripts/bigdata",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -910,14 +795,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/download?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -948,14 +829,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -982,14 +859,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1020,14 +893,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_notfound.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/exists?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_notfound.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1058,14 +927,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/list?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1092,14 +957,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/folders/list?bucket_name=aws-big-data-project-test1",
+					"raw": "http://{{ec2_public_dns}}:5004/folders/list?bucket_name=aws-big-data-project-test1",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1122,14 +983,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20190829",
+					"raw": "http://{{ec2_public_dns}}:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20190829",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1156,14 +1013,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1194,14 +1047,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-18-221-36-125.us-east-2.compute.amazonaws.com:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
+					"raw": "http://{{ec2_public_dns}}:5004/files/delete?bucket_name=aws-big-data-project-test1&object_name=imdb/20180829&file_name=test_upload_withpath.txt",
 					"protocol": "http",
 					"host": [
-						"ec2-18-221-36-125",
-						"us-east-2",
-						"compute",
-						"amazonaws",
-						"com"
+						"{{ec2_public_dns}}"
 					],
 					"port": "5004",
 					"path": [
@@ -1225,6 +1074,13 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ec2_public_dns",
+			"value": "<YOUR_EC2_PUBLIC_DNS>",
+			"type": "string"
 		}
 	]
 }

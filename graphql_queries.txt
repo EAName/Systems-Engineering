@@ -12,12 +12,12 @@
 {bucketExists(bucketName: "aws-big-data-project")}
 
 
-{ createBucket(bucketName: "aws-big-data-test1") }
-{ createBucket(bucketName: "aws-big-data-test2", region: "us-east-2") }
+{ createBucket(bucketName: "aws-big-data-test1") { message } }
+{ createBucket(bucketName: "aws-big-data-test2", region: "us-east-2") { message } }
 
 
-{ deleteBucket(bucketName: "aws-big-data-test2") }
-{ deleteBucket(bucketName: "aws-big-data-test1") }
+{ deleteBucket(bucketName: "aws-big-data-test2") { message } }
+{ deleteBucket(bucketName: "aws-big-data-test1") { message } }
 
 
 {listObjects(bucketName: "aws-big-data-project")}

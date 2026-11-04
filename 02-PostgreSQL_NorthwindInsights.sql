@@ -1,6 +1,9 @@
 /***********************************************
 ** File: Module2-NorthwindInSights.sql
 ************************************************/
+-- 01-PostgreSQLNorthwindScriptDDLDML.sql creates every table in the northwind schema
+set search_path to northwind;
+
 select * from categories;
 select * from customer_customer_demo;
 select * from customer_demographics;
@@ -71,7 +74,7 @@ inner join
 
 where a.shipped_date is not null
 group by e.first_name, e.last_name, a.ship_country
-order by e.first_name, e.last_name, a.ship_country
+order by e.first_name, e.last_name, a.ship_country;
 
 select a.ship_country,
 	   e.last_name, 
@@ -91,7 +94,7 @@ inner join
 ) b on a.order_id = b.order_id
 where a.shipped_date is not null
 group by a.ship_country, e.last_name, e.first_name, a.shipped_date, a.order_id
-order by a.ship_country, e.last_name, e.first_name, a.shipped_date, a.order_id
+order by a.ship_country, e.last_name, e.first_name, a.shipped_date, a.order_id;
 
 
 -- 4. Current Product List

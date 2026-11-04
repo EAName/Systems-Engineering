@@ -112,13 +112,15 @@ def create_bucket():
             if region is None:
                 session = boto3.Session(profile_name='default')
                 region = session.region_name
-                location = {'LocationConstraint': region}
                 s3 = session.client('s3')
-                s3.create_bucket(Bucket=bucket_name,
-                                        CreateBucketConfiguration=location)
-
             else:
                 s3 = boto3.client('s3', region_name=region)
+
+            # us-east-1 is S3's default location and rejects an explicit
+            # LocationConstraint, so only send one for the other regions
+            if region in (None, 'us-east-1'):
+                s3.create_bucket(Bucket=bucket_name)
+            else:
                 location = {'LocationConstraint': region}
                 s3.create_bucket(Bucket=bucket_name,
                                  CreateBucketConfiguration=location)
@@ -378,7 +380,8 @@ def file_exists():
             except:
                 pass
 
-            if objects !=[]:
+            # list_objects matches by prefix, so require an exact key match
+            if object_name in objects:
                 flag_found = True
 
             response = jsonify({"bucket_name": bucket_name, "object_name" : object_name, "exists" : flag_found})
@@ -424,7 +427,8 @@ def delete_file():
                     objects.append(i['Key'])
             except:
                 pass
-            if objects != []:
+            # list_objects matches by prefix, so require an exact key match
+            if object_name in objects:
                 s3.delete_object(Bucket=bucket_name, Key=object_name)
 
                 objects_post = []
@@ -436,7 +440,7 @@ def delete_file():
                 except:
                     pass
 
-                if objects_post !=[]:
+                if object_name in objects_post:
                     response = jsonify({"bucket_name": bucket_name, "object_name" : object_name, "status" : 'file deletion failed'})
                     response.status_code = 400
                 else:
@@ -555,4 +559,5 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5004, debug=True)
+    # debug=False: the Werkzeug debugger must not be exposed on a public EC2 port
+    app.run(host="0.0.0.0", port=5004, debug=False)
